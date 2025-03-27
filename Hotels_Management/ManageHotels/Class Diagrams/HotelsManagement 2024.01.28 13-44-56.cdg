@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="HotelsManagement">
+  <ClassDiagramComponents>
+    <Class name="Manage" package="controller" visibility="public" xPosition="37.0" yPosition="326.0">
+      <Fields>
+        <Field name="listHotels" type="List&lt;Hotels&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getListHotels" returnType="List&lt;Hotels&gt;" visibility="public"/>
+        <Method name="getHotel" returnType="Hotels" visibility="public">
+          <Argument type="String" name="id"/>
+        </Method>
+        <Method name="addNewHotel" returnType="void" visibility="public"/>
+        <Method name="printListHotels" returnType="void" visibility="public">
+          <Argument type="List&lt;Hotels&gt;" name="list"/>
+        </Method>
+        <Method name="saveFile" returnType="void" visibility="public">
+          <Argument type="String" name="file"/>
+        </Method>
+        <Method name="readFile" returnType="void" visibility="public">
+          <Argument type="String" name="file"/>
+        </Method>
+        <Method name="updateHotel" returnType="List&lt;Hotels&gt;" visibility="public"/>
+        <Method name="deleteHotel" returnType="List&lt;Hotels&gt;" visibility="public">
+          <Argument type="String" name="hotelId"/>
+        </Method>
+        <Method name="searchByID" returnType="List&lt;Hotels&gt;" visibility="public">
+          <Argument type="String" name="keyID"/>
+        </Method>
+        <Method name="searchByName" returnType="List&lt;Hotels&gt;" visibility="public">
+          <Argument type="String" name="hotelName"/>
+        </Method>
+        <Method name="displayDescendingByHotelName" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Validation" package="controller" visibility="public" xPosition="37.0" yPosition="7.0">
+      <Fields>
+        <Field name="SCANNER" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="inputInt" returnType="int" visibility="public" isStatic="true">
+          <Argument type="String" name="messageInfo"/>
+          <Argument type="String" name="messageErrorOutOfRange"/>
+          <Argument type="String" name="messageErrorInvalidNumber"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="inputDouble" returnType="double" visibility="public" isStatic="true">
+          <Argument type="String" name="messageInfo"/>
+          <Argument type="String" name="messageErrorOutOfRange"/>
+          <Argument type="String" name="messageErrorInvalidNumber"/>
+          <Argument type="double" name="min"/>
+          <Argument type="double" name="max"/>
+        </Method>
+        <Method name="inputString" returnType="String" visibility="public" isStatic="true">
+          <Argument type="String" name="messageInfo"/>
+          <Argument type="String" name="messageError"/>
+          <Argument type="String" name="REGEX"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Hotels" package="model" visibility="public" xPosition="382.0" yPosition="198.0">
+      <Fields>
+        <Field name="hotelId" type="String" visibility="private"/>
+        <Field name="hotelName" type="String" visibility="private"/>
+        <Field name="hotelRoomAvailable" type="int" visibility="private"/>
+        <Field name="hotelAddress" type="String" visibility="private"/>
+        <Field name="hotelPhone" type="String" visibility="private"/>
+        <Field name="hotelRating" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="hotelId"/>
+          <Argument type="String" name="hotelName"/>
+          <Argument type="int" name="hotelRoomAvailable"/>
+          <Argument type="String" name="hotelAddress"/>
+          <Argument type="String" name="hotelPhone"/>
+          <Argument type="int" name="hotelRating"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getHotelId" returnType="String" visibility="public"/>
+        <Method name="setHotelId" returnType="void" visibility="public">
+          <Argument type="String" name="hotelId"/>
+        </Method>
+        <Method name="getHotelName" returnType="String" visibility="public"/>
+        <Method name="setHotelName" returnType="void" visibility="public">
+          <Argument type="String" name="hotelName"/>
+        </Method>
+        <Method name="getHotelRoomAvailable" returnType="int" visibility="public"/>
+        <Method name="setHotelRoomAvailable" returnType="void" visibility="public">
+          <Argument type="int" name="hotelRoomAvailable"/>
+        </Method>
+        <Method name="getHotelAddress" returnType="String" visibility="public"/>
+        <Method name="setHotelAddress" returnType="void" visibility="public">
+          <Argument type="String" name="hotelAddress"/>
+        </Method>
+        <Method name="getHotelPhone" returnType="String" visibility="public"/>
+        <Method name="setHotelPhone" returnType="void" visibility="public">
+          <Argument type="String" name="hotelPhone"/>
+        </Method>
+        <Method name="getHotelRating" returnType="int" visibility="public"/>
+        <Method name="setHotelRating" returnType="void" visibility="public">
+          <Argument type="int" name="hotelRating"/>
+        </Method>
+        <Method name="display" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="HotelManagement" package="view" visibility="public" xPosition="845.0" yPosition="58.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="listHotels" source="controller.Manage" target="model.Hotels" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Hotels&gt;"/>
+    <UseRelation source="controller.Manage" target="model.Hotels" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
